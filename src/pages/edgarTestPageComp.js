@@ -16,7 +16,7 @@ import {
 //----- css style variable.
 
 // const colStyle = { marginTop: "100px" };
-const rowStyle = { minHeight: "60vh" };
+const rowStyle = { minHeight: "300px" };
 const footerButton = {
   display: "flex",
   flexDirection: "row",
@@ -92,6 +92,32 @@ export default function App() {
           <img className='img-fluid' style={{width:'700px'}} src='https://res2.weblium.site/res/5caf62ab525d1a0023399212/5d5bb7801ff8a40023d9799f_optimized_1396' alt="application" />
         </Col>
       </Row>
+
+      <Row  style={rowStyle} className=" p-4 border">
+        <Col className='text-center' lg='4'>
+          <h5 style={{fontSize:'40px'}}>Techfit</h5>
+          <p style={{fontSize:'20px'}}>Solutions & Support</p>
+        </Col>
+        <Col className='text-center' lg='4'>
+          <h5 style={{ fontSize: '40px' }}>Call Us</h5>
+          <p style={{fontSize:'20px'}}>+1 (234) 567 89 00</p>
+          <p style={{fontSize:'20px'}}>+1 (234) 567 89 03</p>
+          <p style={{fontSize:'20px'}}>+1 (234) 567 55 00</p>
+        </Col>
+        <Col className='text-center' lg='4'>
+          <h5 style={{ fontSize: '40px' }}>Write Us</h5>
+          <p style={{fontSize:'20px'}}>help@email.com</p>
+          <p style={{fontSize:'20px'}}>mycompany@email.com</p>
+        </Col>
+      </Row>
+      <Row className='bg-dark pt-3 pb-3'>
+        <Col lg='12'>
+       <span className='text-white'>Created with by Techfit Team </span>
+        </Col>
+      </Row>
+
+
+
     
     </Container>
   );

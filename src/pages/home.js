@@ -4,7 +4,7 @@ import TopNavBar from '../components/Navbar'
 import "bootstrap/dist/css/bootstrap.min.css";
 import Register from '../components/Register'
 import WhyChooseUs from '../components/WhyChooseUs'
-import About from '../components/AboutUs'
+import Footer from '../components/Footer'
 
 import FirstScreen from '../components/FirstScreen'
 import AboutUs from '../components/AboutUs'
@@ -12,12 +12,13 @@ const home = () => {
     return (
         <Container className="" fluid={true}>
             <TopNavBar />
-            <About />
-            <WhyChooseUs />
-            <Register />
-
             <FirstScreen />
             <AboutUs />
+         
+            <WhyChooseUs />
+            <Register />
+            <Footer/>
+           
         </Container>
     );
 }
