@@ -2,12 +2,14 @@ import React from 'react';
 import { Container } from 'react-bootstrap'
 import TopNavBar from '../components/Navbar'
 import "bootstrap/dist/css/bootstrap.min.css";
-import About from '../components/AboutUs'
+import FirstScreen from '../components/FirstScreen'
+import AboutUs from '../components/AboutUs'
 const home = () => {
     return (
-        <Container className="bg-warning " fluid={true}>
+        <Container className="" fluid={true}>
             <TopNavBar />
-            <About />
+            <FirstScreen />
+            <AboutUs />
         </Container>
     );
 }
