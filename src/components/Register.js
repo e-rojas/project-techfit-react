@@ -7,7 +7,7 @@ const register = () => {
   return (
     <Row styel={{ rowStyle }} className="bg-light p-4">
       <Col lg={6}>
-        <img src="https://res2.weblium.site/res/5dd5707543faa200229569cd/5dd5aa4355bfed00218473d1_optimized"></img>
+        <img src="https://res2.weblium.site/res/5dd5707543faa200229569cd/5dd5aa4355bfed00218473d1_optimized" style={{WebkitFilter: "grayscale(100%)", filter: 'grayscale(100%)'}}></img>
       </Col>
       <Col lg={6} className="text-center" style={{ alignItems: "center" }}>
         <h1>Would You Like To Improve Your Health At Work?</h1>
