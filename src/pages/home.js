@@ -6,14 +6,18 @@ import Register from '../components/Register'
 import WhyChooseUs from '../components/WhyChooseUs'
 import About from '../components/AboutUs'
 
+import FirstScreen from '../components/FirstScreen'
+import AboutUs from '../components/AboutUs'
 const home = () => {
     return (
-        <Container className="bg-warning " fluid={true}>
+        <Container className="" fluid={true}>
             <TopNavBar />
             <About />
             <WhyChooseUs />
             <Register />
 
+            <FirstScreen />
+            <AboutUs />
         </Container>
     );
 }
