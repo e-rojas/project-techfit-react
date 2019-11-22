@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Row, Col} from "react-bootstrap";
 
 const whyChooseStyle = { minHeight: "30vh" }
-const imageStyle = { height: "180px", width: "180px" }
+const imageStyle = { height: "180px", width: "180px", marginBottom: "40px"}
 
 const WhyChooseUs = () => {
   return (
@@ -13,7 +13,7 @@ const WhyChooseUs = () => {
       </Col>
     </Row>
     
-    <Row style={{ whyChooseStyle }} className="bg-light p-4 text-center">
+    <Row style={{ whyChooseStyle, }} className="bg-light p-4 text-center">
       <Col lg={4}>
         <img style={imageStyle} src="images/idea.svg" alt="Think Smart"></img>
         <h4>Meal & Fitness Profile</h4>
