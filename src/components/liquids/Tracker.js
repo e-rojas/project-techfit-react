@@ -1,5 +1,6 @@
 import React from 'react';
-import AddButton from './AddButton';
+import Incrementer from './Incrementer';
+import './Tracker.scss';
 
 export default function Tracker(props) {
   return (
@@ -8,16 +9,13 @@ export default function Tracker(props) {
       <table>
         <tbody>
           <tr>
-            <td>Water</td>
-            <td><AddButton confirm onClick={props.incrementWater}/></td>
+            <td><Incrementer name={'Water'} onClick={props.incrementWater}/></td>
           </tr>        
           <tr>
-            <td>Coffee</td>
-            <td><AddButton confirm onClick={props.incrementCoffee}/></td>
+            <td><Incrementer name={'Coffee'} onClick={props.incrementCoffee}/></td>
           </tr>
           <tr>
-            <td>Soda</td>
-            <td><AddButton confirm onClick={props.incrementSoda}/></td>
+            <td><Incrementer name={'Soda'} onClick={props.incrementSoda}/></td>
           </tr>
         </tbody>
       </table>
