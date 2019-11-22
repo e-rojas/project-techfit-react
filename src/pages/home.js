@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container } from 'react-bootstrap'
-import TopNavBar from '../components/Navbar'
+import TopNavBar from '../components/partials/Navbar'
 import "bootstrap/dist/css/bootstrap.min.css";
-import Register from '../components/Register'
-import WhyChooseUs from '../components/WhyChooseUs'
-import Footer from '../components/Footer'
+import Register from '../components/Homepage/Register'
+import WhyChooseUs from '../components/Homepage/WhyChooseUs'
+import Footer from '../components/partials/Footer'
 
-import FirstScreen from '../components/FirstScreen'
-import AboutUs from '../components/AboutUs'
+import FirstScreen from '../components/Homepage/FirstScreen'
+import AboutUs from '../components/Homepage/AboutUs'
 const home = () => {
     return (
         <Container className="" fluid={true}>
