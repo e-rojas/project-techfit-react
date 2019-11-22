@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Test from './pages/TestPageAnthony'
 //import Test from './pages/edgarTestPageComp'
 import Home from './pages/home'
 import * as serviceWorker from './serviceWorker';
