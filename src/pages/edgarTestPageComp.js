@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Container,
@@ -6,23 +6,13 @@ import {
   Col,
   Button,
   Navbar,
-  NavDropdown,
+ 
   Nav,
-  Form,
-  FormControl
-} from "react-bootstrap";
-const initialState = { count: 0 };
 
-function reducer(state, action) {
-  switch (action.type) {
-    case "increment":
-      return { count: state.count + 1 };
-    case "decrement":
-      return { count: state.count - 1 };
-    default:
-      throw new Error();
-  }
-}
+
+} from "react-bootstrap";
+
+
 //----- css style variable.
 
 const colStyle = { marginTop: "100px" };
@@ -35,7 +25,7 @@ const footerButton = {
   padding: "40px"
 };
 export default function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+ 
   return (
     <Container className="bg-warning " fluid={true}>
       <Row className="bg-dark p-4">
@@ -81,22 +71,24 @@ export default function App() {
           className=""
         >
           <header>
-            <h1>Techfit</h1>
-            <p>To inspire healthy living in a sedentary world.</p>
+            <h1 style={{fontSize:'60px'}}>Techfit</h1>
+            <p style={{fontSize:'30px'}}>To inspire healthy living in a sedentary world.</p>
           </header>
-          <div>
+          <div style={{fontSize:'30px'}} className='d-flex ' >
             <span>Follow Us:</span>
-            <span>Facebook Icon</span>
-            <span>Instagram Icon</span>
-            <span>Youtube Icon</span>
+            <div>
+            <span className='ml-3 mr-3'><i class="fab fa-instagram"></i></span>
+            <span className='ml-3 mr-3'><i class="fab fa-facebook-square"></i></span>
+            <span className='ml-3 mr-3'><i class="fab fa-youtube-square"></i></span>
+           </div>
           </div>
           <footer style={footerButton}>
-            <Button variant="outline-dark">Leearn More</Button>
-            <Button variant="outline-dark">Register</Button>
+            <Button style={{minWidth:'180px'}} size='lg' variant="outline-dark">Leearn More</Button>
+            <Button style={{minWidth:'180px'}} size='lg' variant="dark">Register</Button>
           </footer>
         </Col>
-        <Col lg={6} className="bg-danger">
-          <img src="" alt="" />
+        <Col lg={6} className=" d-flex flex-column justify-content-center align-items-center">
+          <img src='images/about-us-app-display.png' alt="application" />
         </Col>
       </Row>
       <Row style={rowStyle} className="bg-light p-4">
@@ -133,10 +125,4 @@ export default function App() {
   );
 }
 
-{
-  /* <>
-      Count: {state.count}
-      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
-      <button onClick={() => dispatch({type: 'increment'})}>+</button>
-    </> */
-}
+
