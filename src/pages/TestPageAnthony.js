@@ -3,7 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Button, Form, Accordion, Card } from "react-bootstrap";
 import RecipeCardInfo from '../components/Profile/SavedItems/RecipeCardInfo'
 
-const initialState = { count: 0 };
+import MealCard from '../components/MealPlan/MealCard'
+
 function reducer(state, action) {
   switch (action.type) {
     case "increment":
@@ -35,9 +36,9 @@ export default function App() {
             </Card.Header>
             <Accordion.Collapse eventKey="0">
               <Card.Body>
-
-                <RecipeCardInfo />
-
+                
+                <MealCard />
+              
               </Card.Body>
             </Accordion.Collapse>
           </Card>
