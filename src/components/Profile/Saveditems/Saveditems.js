@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col, Button, Accordion, Card } from "react-bootstrap";
 import RecipeCardInfo from '../components/Profile/Saveditems/RecipeCardInfo'
+import WorkoutCardInfo from '../components/Profile/SavedItems/WorkoutCardInfo'
 
 const SavedItems = () => {
   return (
@@ -77,11 +78,14 @@ const SavedItems = () => {
             </Card.Body>
           </Accordion.Collapse>
         </Card>
-      </Accordion>
-      <Button variant="secondary" size="lg" block style={{marginTop: "10px"}}>
+        </Accordion>
+        <Button variant="secondary" size="lg" block style={{marginTop: "10px"}}>
           Click Here To See More
-      </Button>
+        </Button>
+
+
     </Col>
+
     <Col lg={2}>
     </Col>
     <Col lg={5} className="p-5">
@@ -95,7 +99,7 @@ const SavedItems = () => {
           <Accordion.Collapse eventKey="0">
             <Card.Body>
 
-              <RecipeCardInfo />
+              <WorkoutCardInfo />
 
             </Card.Body>
           </Accordion.Collapse>
@@ -109,7 +113,7 @@ const SavedItems = () => {
           <Accordion.Collapse eventKey="1" style={{ color: "black" }}>
             <Card.Body>
 
-              <RecipeCardInfo />
+            <WorkoutCardInfo />
 
             </Card.Body>
           </Accordion.Collapse>
@@ -123,7 +127,7 @@ const SavedItems = () => {
           <Accordion.Collapse eventKey="2">
             <Card.Body>
 
-              <RecipeCardInfo />
+            <WorkoutCardInfo />
 
             </Card.Body>
           </Accordion.Collapse>
@@ -137,7 +141,7 @@ const SavedItems = () => {
           <Accordion.Collapse eventKey="3">
             <Card.Body>
 
-              <RecipeCardInfo />
+            <WorkoutCardInfo />
 
             </Card.Body>
           </Accordion.Collapse>
@@ -151,15 +155,15 @@ const SavedItems = () => {
           <Accordion.Collapse eventKey="4">
             <Card.Body>
 
-              <RecipeCardInfo />
+            <WorkoutCardInfo />
 
             </Card.Body>
           </Accordion.Collapse>
         </Card>
       </Accordion>
       <Button variant="secondary" size="lg" block style={{marginTop: "10px"}}>
-        Click Here To See More
-      </Button>
+          Click Here To See More
+        </Button>
     </Col>
   </Row>
   )
