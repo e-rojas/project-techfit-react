@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 const Footer = () => {
   const rowStyle = { minHeight: "300px" };
