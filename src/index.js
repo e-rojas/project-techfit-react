@@ -4,18 +4,12 @@ import './index.css';
 
 import Test from './pages/TestPageAnthony'
 
-import Test from './pages/TestPageGriffin.js'
 
-//import Test from './pages/edgarTestPageComp'
-import Register from './pages/register'
-import Home from './pages/home'
 import * as serviceWorker from './serviceWorker';
-import Login from './pages/MealPlan'
+
 
 ReactDOM.render(<Test />, document.getElementById('root'));
 
-
-ReactDOM.render(<Login />, document.getElementById('root'));
 
 
 // If you want your app to work offline and load faster, you can change
