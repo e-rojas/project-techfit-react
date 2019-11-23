@@ -22,14 +22,13 @@ const registrationForm = () => {
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="passwordOne" placeholder="Password" />
           </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Phone Number</Form.Label>
-            <Form.Control type="phone" placeholder="ex: 777-777-7777" />
+          <Form.Group controlId="formBasicPasswordConfirm">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control type="passwordTwo" placeholder="Confirm Password" />
           </Form.Group>
-
           <Button variant="primary" type="submit" style={{ width: "100%", marginTop: "50px", filter: 'grayscale(100%)' }} variant="dark" >
             Register!
             </Button>

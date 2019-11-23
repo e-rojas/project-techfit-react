@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import Test from './pages/TestPageAnthony'
+import Test from './pages/TestPageGriffin.js'
 //import Test from './pages/edgarTestPageComp'
 import Register from './pages/register'
 import Home from './pages/home'
 import * as serviceWorker from './serviceWorker';
-import Login from './pages/login'
+import Login from './pages/MealPlan'
 
 
 ReactDOM.render(<Login />, document.getElementById('root'));
