@@ -1,27 +1,11 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React from 'react'
 import { Row, Col, Button, Accordion, Card, ButtonToolbar } from "react-bootstrap";
-import RecipeCardInfo from '../components/Profile/SavedItemsSection/RecipeCardInfo'
-import WorkoutCardInfo from '../components/Profile/SavedItemsSection/WorkoutCardInfo'
-
-//----- css style variable.
-
-// const colStyle = { marginTop: "100px" };
-const rowStyle = { minHeight: "300px" };
-const footerButton = {
-  display: "flex",
-  flexDirection: "row",
-  width: "100%",
-  justifyContent: "space-evenly",
-  padding: "40px"
-};
 
 const imageStyle = { height: "100px", width: "100px", marginBottom: "40px"}
 
-
-export default function App() {
+const ProfileInfo = () => {
   return (
-    <Row style={{marginTop: "100px"}} className="p-5 text-center">
+    <Row style={{marginTop: "100px", borderBottom: "1px solid black"}} className="p-5 text-center">
       <Col lg={2}>
         <img src="images/profle-pic.png" alt="Profile Picture" style={imageStyle}></img>
         <h3>First Last</h3>
@@ -47,13 +31,13 @@ export default function App() {
           
 
       </Col>
-      <Col lg={2}>
+      <Col lg={3}>
 
       </Col>
-      <Col lg={4}>
+      <Col lg={3} style={{textAlign: "right"}} >
 
-      <ButtonToolbar>
-    <Button variant="outline-dark" size="sm" style={{marginRight: "15px"}}>
+      <ButtonToolbar >
+    <Button variant="outline-dark" size="sm" style={{marginRight: "15px", height: "50px", width: "100px"}}>
       Meal Plan
     </Button>
     <Button variant="dark" size="sm">
@@ -63,6 +47,8 @@ export default function App() {
 
       </Col>
     </Row>
-    );
-  }
-  
+
+  )
+}
+
+export default ProfileInfo;
