@@ -7,6 +7,7 @@ const SavedItems = () => {
   return (
     <Row>
     <Col lg={5} className="p-5">
+      <h2 className="text-center p-3">Saved Recipes</h2>
       <Accordion >
         <Card style={{ backgroundColor: "white! important" }}>
           <Card.Header>
@@ -89,6 +90,7 @@ const SavedItems = () => {
     <Col lg={2}>
     </Col>
     <Col lg={5} className="p-5">
+    <h2 className="text-center p-3">Saved Workouts</h2>
       <Accordion >
         <Card>
           <Card.Header>
