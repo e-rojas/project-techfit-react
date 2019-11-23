@@ -32,7 +32,6 @@ const MealPlanSection = () => {
               marginTop: "50px",
               filter: "grayscale(100%)"
             }}
-            
           >
             Search
           </Button>

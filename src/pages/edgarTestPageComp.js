@@ -55,6 +55,11 @@ export default function App() {
       </Row> */}
 
       {/*  Navigation bar*/}
+      <Row >
+        <Col style={{minHeight:'300px'}} className='mt-5 mb-5 alert-warning'>
+          hleeo
+        </Col>
+      </Row>
       <Row style={rowStyle} className=" p-4">
         <Col
           style={{

@@ -1,15 +1,17 @@
-import React, { Fragment } from "react";
+import React from "react";
 import MealPlanSection from "../components/MealPlan/MealPlanSection";
 import NavBar from "../components/partials/Navbar";
 import Footer from "../components/partials/Footer";
-
+import { Container } from "react-bootstrap";
+import ProfileInfo from "../components/Profile/ProfileInfoSection/ProfileInfo";
 const MealPlan = () => {
   return (
-    <Fragment>
+    <Container className="" fluid={true}>
       <NavBar />
+      <ProfileInfo />
       <MealPlanSection />
       <Footer />
-    </Fragment>
+    </Container>
   );
 };
 

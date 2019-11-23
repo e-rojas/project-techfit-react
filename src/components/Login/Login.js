@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 import { Row, Col, Button, Form } from "react-bootstrap";
 
 const login = () => {
@@ -7,7 +8,7 @@ const login = () => {
       style={{ marginTop: "200px", marginBottom: "200px" }}
       className="p-4  d-flex justify-content-center "
     >
-      <Col style={{ maxWidth: "600px" }} lg={12} className="text-center">
+      <Col style={{ maxWidth: "600px" }} lg={12} >
         <Form style={{ minWidth: "600px" }}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -27,17 +28,17 @@ const login = () => {
               marginTop: "50px",
               filter: "grayscale(100%)"
             }}
-            variant="dark"
           >
             Login
           </Button>
-          <Form.Text className="text-muted">
-            Don't have an account? <a>Sign Up!</a>.
+          <Form.Text className="text-muted mt-4">
+            <span> Don't have an account? </span>
+            <Link to="/register">Sign Up!</Link>.
           </Form.Text>
         </Form>
       </Col>
     </Row>
   );
-}
+};
 
 export default login;
