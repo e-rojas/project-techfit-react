@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Button, Form, Accordion, Card } from "react-bootstrap";
 const initialState = { count: 0 };
 
+import MealCard from '../components/MealPlan/MealCard'
+
 function reducer(state, action) {
   switch (action.type) {
     case "increment":
@@ -33,7 +35,11 @@ export default function App() {
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
-              <Card.Body>Hello! I'm the body</Card.Body>
+              <Card.Body>
+                
+                <MealCard />
+              
+              </Card.Body>
             </Accordion.Collapse>
           </Card>
           <Card>

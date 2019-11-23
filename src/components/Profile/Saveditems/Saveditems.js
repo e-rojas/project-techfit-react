@@ -1,5 +1,6 @@
 import React from 'react'
 import { Row, Col, Button, Accordion, Card } from "react-bootstrap";
+import MealCard from '../components/MealPlan/MealCard'
 
 const savedItems = () => {
   return (
@@ -13,7 +14,11 @@ const savedItems = () => {
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
-              <Card.Body>Hello! I'm the body</Card.Body>
+              <Card.Body>
+                
+                <MealCard />
+              
+              </Card.Body>
             </Accordion.Collapse>
           </Card>
           <Card>
