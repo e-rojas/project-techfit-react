@@ -78,6 +78,9 @@ const SavedItems = () => {
           </Accordion.Collapse>
         </Card>
       </Accordion>
+      <Button variant="secondary" size="lg" block style={{marginTop: "10px"}}>
+          Click Here To See More
+      </Button>
     </Col>
     <Col lg={2}>
     </Col>
@@ -86,7 +89,7 @@ const SavedItems = () => {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "black" }}>
-              Click me!
+              Stair Climbing
           </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
@@ -100,7 +103,7 @@ const SavedItems = () => {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Button} variant="link" eventKey="1" style={{ color: "black" }}>
-              Click me!
+              Stair Climbing
           </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="1" style={{ color: "black" }}>
@@ -114,7 +117,7 @@ const SavedItems = () => {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Button} variant="link" eventKey="2" style={{ color: "black" }}>
-              Click me!
+              Stair Climbing
           </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="2">
@@ -128,7 +131,7 @@ const SavedItems = () => {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Button} variant="link" eventKey="3" style={{ color: "black" }}>
-              Click me!
+              Stair Climbing
           </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="3">
@@ -142,7 +145,7 @@ const SavedItems = () => {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Button} variant="link" eventKey="4" style={{ color: "black" }}>
-              Click me!
+              Stair Climbing
           </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="4">
@@ -154,6 +157,9 @@ const SavedItems = () => {
           </Accordion.Collapse>
         </Card>
       </Accordion>
+      <Button variant="secondary" size="lg" block style={{marginTop: "10px"}}>
+        Click Here To See More
+      </Button>
     </Col>
   </Row>
   )
