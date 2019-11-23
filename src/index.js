@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-import Test from "./pages/FitnessPlan";
+import Test from "./pages/profile";
 
 import * as serviceWorker from "./serviceWorker";
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col, Button, Accordion, Card } from "react-bootstrap";
-import RecipeCardInfo from '../components/Profile/Saveditems/RecipeCardInfo'
-import WorkoutCardInfo from '../components/Profile/Saveditems/WorkoutCardInfo'
+import RecipeCardInfo from './RecipeCardInfo'
+import WorkoutCardInfo from './WorkoutCardInfo'
 
 const SavedItems = () => {
   return (
@@ -78,8 +78,14 @@ const SavedItems = () => {
             </Card.Body>
           </Accordion.Collapse>
         </Card>
-      </Accordion>
+        </Accordion>
+        <Button variant="secondary" size="lg" block style={{marginTop: "10px"}}>
+          Click Here To See More
+        </Button>
+
+
     </Col>
+
     <Col lg={2}>
     </Col>
     <Col lg={5} className="p-5">
@@ -87,7 +93,7 @@ const SavedItems = () => {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "black" }}>
-              Click me!
+              Stair Climbing
           </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="0">
@@ -101,7 +107,7 @@ const SavedItems = () => {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Button} variant="link" eventKey="1" style={{ color: "black" }}>
-              Click me!
+              Stair Climbing
           </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="1" style={{ color: "black" }}>
@@ -115,7 +121,7 @@ const SavedItems = () => {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Button} variant="link" eventKey="2" style={{ color: "black" }}>
-              Click me!
+              Stair Climbing
           </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="2">
@@ -129,7 +135,7 @@ const SavedItems = () => {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Button} variant="link" eventKey="3" style={{ color: "black" }}>
-              Click me!
+              Stair Climbing
           </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="3">
@@ -143,7 +149,7 @@ const SavedItems = () => {
         <Card>
           <Card.Header>
             <Accordion.Toggle as={Button} variant="link" eventKey="4" style={{ color: "black" }}>
-              Click me!
+              Stair Climbing
           </Accordion.Toggle>
           </Card.Header>
           <Accordion.Collapse eventKey="4">
@@ -155,6 +161,9 @@ const SavedItems = () => {
           </Accordion.Collapse>
         </Card>
       </Accordion>
+      <Button variant="secondary" size="lg" block style={{marginTop: "10px"}}>
+          Click Here To See More
+        </Button>
     </Col>
   </Row>
   )
