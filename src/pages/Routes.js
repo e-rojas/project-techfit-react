@@ -5,10 +5,12 @@ import Register from "../pages/register";
 import Profile from "../pages/profile";
 import MealPlan from "../pages/MealPlan";
 import FitnessPlan from "../pages/FitnessPlan";
+import Home from '../pages/home'
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
+      <Route path="/home" component={() => <Home />} />
         <Route path="/meal-plan" component={() => <MealPlan />} />
         <Route path="/fitness-plan" component={() => <FitnessPlan />} />
         <Route path="/login" component={() => <Login />} />

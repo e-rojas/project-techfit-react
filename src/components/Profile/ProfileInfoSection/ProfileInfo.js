@@ -8,6 +8,7 @@ import {
   ButtonToolbar
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import UserInfoForm from './UserInfoForm'
 const imageStyle = { height: "100px", width: "100px", marginBottom: "40px" };
 
 const ProfileInfo = () => {
@@ -17,31 +18,33 @@ const ProfileInfo = () => {
       className="p-5 text-center"
     >
       <Col lg={2}>
-        <img src="images/profle-pic.png" alt="Profile" style={imageStyle}></img>
+        <img className='rounded-circle' src="images/profle-pic.png" alt="Profile" style={imageStyle}></img>
         <h3>First Last</h3>
       </Col>
       <Col lg={4}>
-        <Accordion>
-          <Card style={{ backgroundColor: "white! important" }}>
+        <Accordion className='mt-2 mb-2'>
+          <Card style={{ backgroundColor: "#f3f3f3",borderRadius:'10px' }}>
             <Card.Header>
               <Accordion.Toggle
-                as={Button}
-                variant="link"
+               
+               
                 eventKey="0"
                 style={{ color: "black" }}
               >
-                User Information
+             <span >Update User Info </span> <i class="far fa-address-card"></i>
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
-              <Card.Body>Information Form</Card.Body>
+              <Card.Body>
+                <UserInfoForm />
+              </Card.Body>
             </Accordion.Collapse>
           </Card>
         </Accordion>
       </Col>
       <Col lg={3}></Col>
       <Col lg={3} style={{ textAlign: "right" }}>
-        <ButtonToolbar>
+        <ButtonToolbar className='mt-3'>
           <Link
             style={{ textDecoration: "none", color: "#000" }}
             to="/meal-plan"

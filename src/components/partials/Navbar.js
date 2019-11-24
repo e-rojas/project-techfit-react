@@ -12,7 +12,7 @@ const navbar = () => {
           expand="lg"
         >
           <Navbar.Brand className="font-weight-bolder" href="#home">
-            <Link style={{ textDecoration: "none", color: "black" }} to="/">
+            <Link style={{ textDecoration: "none", color: "black" }} to="/home">
               Techfit
             </Link>
           </Navbar.Brand>
@@ -21,7 +21,7 @@ const navbar = () => {
             <Nav className="ml-auto d-flex flex-row justify-content-center align-items-center">
               <NavLink
                 style={{ textDecoration: "none", color: "black" }}
-                to="/"
+                to="/home"
                 className="mr-5"
               >
                 Home

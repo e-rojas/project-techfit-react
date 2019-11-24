@@ -31,7 +31,7 @@ const register = () => {
             <Form.Control type="phone" placeholder="ex: 777-777-7777" />
           </Form.Group>
 
-          <Button variant="primary" type="submit" style={{ width: "100%", marginTop: "50px", filter: 'grayscale(100%)' }} variant="dark" >
+          <Button variant="primary" type="submit" style={{ width: "100%", marginTop: "50px", filter: 'grayscale(100%)' }} >
             Register!
             </Button>
         </Form>
