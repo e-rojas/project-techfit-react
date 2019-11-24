@@ -17,6 +17,9 @@ export default function Tracker(props) {
           <tr>
             <td><Incrementer name={'Soda'} onClick={props.incrementSoda}/></td>
           </tr>
+          <tr>
+            <td><Incrementer name={'Other'} onClick={props.incrementSoda}/></td>
+          </tr>
         </tbody>
       </table>
     </section>
