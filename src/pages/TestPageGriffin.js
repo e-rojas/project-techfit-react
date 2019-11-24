@@ -12,6 +12,7 @@ import {
   FormControl
 } from "react-bootstrap";
 import Tracker from '../components/liquids/Tracker';
+import ChartContainer from '../components/chart/ChartContainer';
 
 const initialState = { count: 0 };
 
@@ -36,6 +37,7 @@ const footerButton = {
   justifyContent: "space-evenly",
   padding: "40px"
 };
+
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
@@ -54,7 +56,7 @@ export default function App() {
 
       {/* Navigation bar */}
 
-      <Row >
+      <Row>
         <Col className='p-0'>
           <Navbar fixed="top" className='pl-5 pr-5 pt-4 pb-4 border-bottom shadow-lg ' bg="light" expand="lg">
             <Navbar.Brand className='font-weight-bolder' href="#home">Techfit</Navbar.Brand>
@@ -100,7 +102,7 @@ export default function App() {
         </Col>
         <Col lg={6} className="bg-danger">
           <section className="liquids">
-            <Tracker />
+            <ChartContainer title={'Test chart!'}/>
           </section>
           <img src="" alt="" />
         </Col>
