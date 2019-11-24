@@ -13,7 +13,7 @@ const navbar = () => {
         >
           <Navbar.Brand className="font-weight-bolder" href="#home">
             <Link style={{ textDecoration: "none", color: "black" }} to="/home">
-              Techfit
+             <img style={{width:'100px'}} className='img-fluid' src="images/techfitLogo.png" alt=""/>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

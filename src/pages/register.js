@@ -1,14 +1,15 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { Container } from 'react-bootstrap'
 import Navbar from "../components/partials/Navbar";
 import Footer from "../components/partials/Footer";
 import RegistrationForm from "../components/register/registrationForm";
 const signup = () => {
   return (
-    <Fragment>
+     <Container className="" fluid={true}>
       <Navbar />
       <RegistrationForm />
       <Footer />
-    </Fragment>
+    </Container>
   );
 };
 

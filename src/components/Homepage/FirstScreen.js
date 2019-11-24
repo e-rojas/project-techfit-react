@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, Button } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 const aboutUs = () => {
   const rowStyle = { minHeight: "80vh" };
   const footerButton = {
@@ -52,9 +52,10 @@ const aboutUs = () => {
           >
             Leearn More
           </Button>
-          <Button style={{ minWidth: "180px" }} size="lg" variant="dark">
+         <Link to='/register' ><Button style={{ minWidth: "180px" }} size="lg" variant="dark">
             Register
           </Button>
+          </Link>
         </footer>
       </Col>
       <Col
