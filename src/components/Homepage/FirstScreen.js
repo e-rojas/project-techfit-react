@@ -3,17 +3,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const aboutUs = () => {
-  const rowStyle = { minHeight: "80vh" };
+
   const footerButton = {
     display: "flex",
     flexDirection: "row",
     width: "100%",
     justifyContent: "space-evenly",
-    padding: "40px"
+    padding: "40px",
+   
   };
 
   return (
-    <Row style={rowStyle} className="bg-white p-4">
+    <Row style={{ minHeight: "80vh",marginTop:'150px',marginBottom:'150px'}} className="bg-white p-4 ">
       <Col
         style={{
           display: "flex",
