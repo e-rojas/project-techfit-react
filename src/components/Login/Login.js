@@ -4,7 +4,7 @@ import { Row, Col, Button, Form } from "react-bootstrap";
 import axios from 'axios'
 
 export default (props) => {
-  let login = false;
+  const [login, setLogin] = useState(false);
   const [form, setValues] = useState({
     email: "",
     password: ""
@@ -48,12 +48,18 @@ export default (props) => {
       .post("http://localhost:3002/api/login", postData, axiosConfig)
       .then(res => {
         setMsg(res.data.message);
-        console.log('token data',res.data)
-        localStorage.setItem("token", res.data.token);
-        props.auth()
-        console.log(props)
+        if (res.data.token) {
+          localStorage.setItem("token", res.data.token);
+          resetForm();
+          setLogin(true)
+        } else {
+          localStorage.setItem('token',null)
+        }
+       
+        
+      
 
-        resetForm();
+       
         // console.log("response from server>>>", res.data);
       })
       .catch(err => {
