@@ -1,10 +1,10 @@
-import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import React, {useState, Fragment} from "react";
+import { Link ,Redirect } from "react-router-dom";
 import { Row, Col, Button, Form } from "react-bootstrap";
 import axios from 'axios'
 
 export default (props) => {
-  let login = false;
+  const [login, setLogin] = useState(false);
   const [form, setValues] = useState({
     email: "",
     password: ""
@@ -48,12 +48,18 @@ export default (props) => {
       .post("http://localhost:3002/api/login", postData, axiosConfig)
       .then(res => {
         setMsg(res.data.message);
-        console.log('token data',res.data)
-        localStorage.setItem("token", res.data.token);
-        props.auth()
-        console.log(props)
+        if (res.data.token) {
+          localStorage.setItem("token", res.data.token);
+          resetForm();
+          setLogin(true)
+        } else {
+          localStorage.setItem('token',null)
+        }
+       
+        
+      
 
-        resetForm();
+       
         // console.log("response from server>>>", res.data);
       })
       .catch(err => {
@@ -62,50 +68,59 @@ export default (props) => {
       });
   };
   return (
-    <Row
-      style={{ marginTop: "200px", marginBottom: "200px" }}
-      className="p-4  d-flex justify-content-center "
-    >
-      <Col style={{ maxWidth: "600px" }} lg={12} >
-        <Form onSubmit={handleLogin} style={{ minWidth: "600px" }}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              value={form.email}
-              name='email'
-              onChange={handleFieldChange}
-              type="email" placeholder="Enter email" />
-          </Form.Group>
-
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-            value={form.password}
-              name='password'
-              onChange={handleFieldChange}
-              type="password" placeholder="Password" />
-          </Form.Group>
-
-          <Button
-            variant="primary"
-            type="submit"
-            style={{
-              width: "100%",
-              marginTop: "50px",
-              filter: "grayscale(100%)"
-            }}
-          >
-            Login
-          </Button>
-          {msg && <p>{msg}</p>}
-          <Form.Text className="text-muted mt-4">
-            <span> Don't have an account? </span>
-            <Link to="/register">Sign Up!</Link>.
-          </Form.Text>
-        </Form>
-      </Col>
-    </Row>
+  <Fragment>
+    {
+    login && ( <Redirect to='/profile' />)
+  }
+    {
+      !login && (<Row
+        style={{ marginTop: "200px", marginBottom: "200px" }}
+        className="p-4  d-flex justify-content-center "
+      >
+        <Col style={{ maxWidth: "600px" }} lg={12} >
+          <Form onSubmit={handleLogin} style={{ minWidth: "600px" }}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                value={form.email}
+                name='email'
+                onChange={handleFieldChange}
+                type="email" placeholder="Enter email" />
+            </Form.Group>
+  
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+              value={form.password}
+                name='password'
+                onChange={handleFieldChange}
+                type="password" placeholder="Password" />
+            </Form.Group>
+  
+            <Button
+              variant="primary"
+              type="submit"
+              style={{
+                width: "100%",
+                marginTop: "50px",
+                filter: "grayscale(100%)"
+              }}
+            >
+              Login
+            </Button>
+            {msg && <p>{msg}</p>}
+            <Form.Text className="text-muted mt-4">
+              <span> Don't have an account? </span>
+              <Link to="/register">Sign Up!</Link>.
+            </Form.Text>
+          </Form>
+        </Col>
+        </Row>)
+        
+      }
+      </Fragment>
   );
-};
 
-
+    };
+    
+    
