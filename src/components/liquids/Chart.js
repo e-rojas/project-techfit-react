@@ -7,7 +7,7 @@ import LiquidPie from './LiquidPie';
 export default function Chart(props) {
   return (
     <section className="liquid--chart">
-      <h3>Liquid Consumption Chart</h3>
+      
       <Container>
         <Row>
         <Col>
