@@ -3,6 +3,18 @@ import { VictoryChart, VictoryAxis, VictoryLine, VictoryStack, VictoryTheme } fr
 import GenerateBar from './GenerateBar.js';
 
 export default function LiquidBar(props) {
+  //CREATE REQUEST TO SERVER FOR DATA HERE
+  //useEffect from React
+  //One request for all drink data
+  //we want to separate each drink from the results
+  //we want to select the most recent 7 results
+
+  //we want to send the value to GenerateBar
+  //we want to generate {x, y} pair for each result
+
+  //axios.get()
+
+
   return (
     <Fragment>
       {/* CHART CONTAINER */}
@@ -32,12 +44,9 @@ export default function LiquidBar(props) {
 
         {/* STACKED BAR CHART */}
         <VictoryStack>
-          {/* WATER */
-          GenerateBar('water')}
-          {/* COFFEE */
-          GenerateBar('coffee')}
-          {/* SODA */
-          GenerateBar('soda')}
+          {GenerateBar('water')}
+          {GenerateBar('coffee')}
+          {GenerateBar('soda')}
         </VictoryStack>
       </VictoryChart>
     </Fragment>
