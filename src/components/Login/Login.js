@@ -1,23 +1,89 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Button, Form } from "react-bootstrap";
+import axios from 'axios'
 
-const login = () => {
+export default (props) => {
+  let login = false;
+  const [form, setValues] = useState({
+    email: "",
+    password: ""
+  });
+
+   const [msg, setMsg] = useState("");
+
+  const resetForm = () => {
+    setValues({
+      email: "",
+      password: ""
+    });
+  };
+
+  // const printValues = e => {
+  //   e.preventDefault();
+  //   console.log(form.email, form.password);
+  //   resetForm()
+  // };
+
+  const handleFieldChange = e => {
+    setValues({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleLogin = e => {
+    e.preventDefault();
+    const postData = {
+      email: form.email,
+      password: form.password
+    };
+    const axiosConfig = {
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Access-Control-Allow-Origin": "*"
+      }
+    };
+    axios
+      .post("http://localhost:3002/api/login", postData, axiosConfig)
+      .then(res => {
+        setMsg(res.data.message);
+        console.log('token data',res.data)
+        localStorage.setItem("token", res.data.token);
+        props.auth()
+        console.log(props)
+
+        resetForm();
+        // console.log("response from server>>>", res.data);
+      })
+      .catch(err => {
+       // setMsg(err);
+        console.log("AXIOS ERROR:", err);
+      });
+  };
   return (
     <Row
       style={{ marginTop: "200px", marginBottom: "200px" }}
       className="p-4  d-flex justify-content-center "
     >
       <Col style={{ maxWidth: "600px" }} lg={12} >
-        <Form style={{ minWidth: "600px" }}>
+        <Form onSubmit={handleLogin} style={{ minWidth: "600px" }}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control
+              value={form.email}
+              name='email'
+              onChange={handleFieldChange}
+              type="email" placeholder="Enter email" />
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+            value={form.password}
+              name='password'
+              onChange={handleFieldChange}
+              type="password" placeholder="Password" />
           </Form.Group>
 
           <Button
@@ -31,6 +97,7 @@ const login = () => {
           >
             Login
           </Button>
+          {msg && <p>{msg}</p>}
           <Form.Text className="text-muted mt-4">
             <span> Don't have an account? </span>
             <Link to="/register">Sign Up!</Link>.
@@ -41,4 +108,4 @@ const login = () => {
   );
 };
 
-export default login;
+

@@ -31,7 +31,7 @@ const ProfileInfo = () => {
                 eventKey="0"
                 style={{ color: "black" }}
               >
-             <span >Update User Info </span> <i class="far fa-address-card"></i>
+             <span >Update User Info </span> <i className="far fa-address-card"></i>
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">

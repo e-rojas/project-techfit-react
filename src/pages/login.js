@@ -7,12 +7,12 @@ import Login from '../components/Login/Login'
 
 const login = () => {
   return (
-      <Container className="" fluid={true}>
-          <TopNavBar />
+      < Container className="" fluid={true}>
+          < TopNavBar />
 
-          <Login />
+          < Login />
 
-          <Footer/>
+          < Footer/>
          
       </Container>
   );

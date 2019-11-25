@@ -23,13 +23,13 @@ const MealCard = () => {
           </p>
           <div className="d-flex flex-row justify-content-between">
             <span>
-              <i class="far fa-clock"></i> : 10 minutes
+              <i className="far fa-clock"></i> : 10 minutes
             </span>
             <span>
-              <i class="fas fa-users"></i> : 5 persons
+              <i className="fas fa-users"></i> : 5 persons
             </span>
             <Button variant="info" size="sm">
-              Add <i class="far fa-plus-square"></i>
+              Add <i className="far fa-plus-square"></i>
             </Button>
           </div>
         </Col>

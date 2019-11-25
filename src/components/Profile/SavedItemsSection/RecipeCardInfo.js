@@ -15,10 +15,10 @@ const RecipeCardInfo = () => {
                 <h5>Roasted Chicken</h5>
               <p>Delcious oven roasted chicken that is easy to make, and will leave you feeling full and satisfied.</p>
                 <div className='d-flex flex-row justify-content-between'>
-                <span><i class="far fa-clock"></i> : 10 minutes</span>
-                <span><i class="fas fa-users"></i> : 5 persons</span>
+                <span><i className="far fa-clock"></i> : 10 minutes</span>
+                <span><i className="fas fa-users"></i> : 5 persons</span>
                 <Button variant="info" size="sm">
-              Recipe <i class="far fa-plus-square"></i>
+              Recipe <i className="far fa-plus-square"></i>
              </Button>
                </div>
               </Col>
