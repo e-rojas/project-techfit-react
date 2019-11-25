@@ -47,7 +47,7 @@ const UserInfoForm = () => {
               filter: "grayscale(100%)"
             }}
           >
-            <i class="far fa-paper-plane"></i>
+            <i className="far fa-paper-plane"></i>
             <span> Update</span>
           </Button>
         </Form>

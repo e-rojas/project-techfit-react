@@ -20,11 +20,11 @@ const WorkoutCardInfo = () => {
           </p>
           <div className="d-flex flex-row justify-content-between">
             <span>
-              <i class="far fa-clock"></i> : 10 minutes
+              <i className="far fa-clock"></i> : 10 minutes
             </span>
             
             <Button variant="info" size="sm">
-              See More <i class="far fa-plus-square"></i>
+              See More <i className="far fa-plus-square"></i>
             </Button>
           </div>
         </Col>

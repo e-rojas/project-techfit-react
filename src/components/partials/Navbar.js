@@ -11,11 +11,11 @@ const navbar = () => {
           bg="light"
           expand="lg"
         >
-          <Navbar.Brand className="font-weight-bolder" href="#home">
+          <Navbar className="font-weight-bolder" href="#home">
             <Link style={{ textDecoration: "none", color: "black" }} to="/home">
              <img style={{width:'100px'}} className='img-fluid' src="images/techfitLogo.png" alt=""/>
             </Link>
-          </Navbar.Brand>
+          </Navbar>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto d-flex flex-row justify-content-center align-items-center">
@@ -27,8 +27,8 @@ const navbar = () => {
                 Home
               </NavLink>
               <NavLink to="/login">
-                {" "}
-                <Button variant="dark">Login</Button>{" "}
+               
+                <Button variant="dark">Login</Button>
               </NavLink>
             </Nav>
           </Navbar.Collapse>
