@@ -35,13 +35,13 @@ const aboutUs = () => {
           <span>Follow Us:</span>
           <div>
             <span className="ml-3 mr-3">
-              <i class="fab fa-instagram"></i>
+              <i className="fab fa-instagram"></i>
             </span>
             <span className="ml-3 mr-3">
-              <i class="fab fa-facebook-square"></i>
+              <i className="fab fa-facebook-square"></i>
             </span>
             <span className="ml-3 mr-3">
-              <i class="fab fa-youtube-square"></i>
+              <i className="fab fa-youtube-square"></i>
             </span>
           </div>
         </div>
