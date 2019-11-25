@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { VictoryChart, VictoryAxis, VictoryLine, VictoryBar, VictoryStack, VictoryTheme } from 'victory';
+import { VictoryChart, VictoryAxis, VictoryLine, VictoryStack, VictoryTheme } from 'victory';
 import GenerateBar from './GenerateBar.js';
 
 export default function LiquidBar(props) {
@@ -10,7 +10,7 @@ export default function LiquidBar(props) {
         height={500}
         width={500}
         theme={VictoryTheme.material}>
-                  
+
         {/* X AXIS */}
         <VictoryAxis crossAxis
           domain={[0, 7]}
