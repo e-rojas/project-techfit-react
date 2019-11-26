@@ -15,7 +15,7 @@ export default function GenerateBar(drink) {
       case 'soda':
         return 'tomato';
 
-      case 'other':
+      default:
         return 'grey'
 
     }
