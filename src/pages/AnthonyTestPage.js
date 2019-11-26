@@ -1,8 +1,10 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col, Button, Accordion, Card, ButtonToolbar } from "react-bootstrap";
+import { Row, Col, Button, Accordion, Card, ButtonToolbar, Modal } from "react-bootstrap";
 import RecipeCardInfo from '../components/Profile/SavedItemsSection/RecipeCardInfo'
 import WorkoutCardInfo from '../components/Profile/SavedItemsSection/WorkoutCardInfo'
+
+
 
 //----- css style variable.
 
@@ -19,50 +21,42 @@ const footerButton = {
 const imageStyle = { height: "100px", width: "100px", marginBottom: "40px"}
 
 
-export default function App() {
+function MyVerticallyCenteredModal(props) {
   return (
-    <Row style={{marginTop: "100px"}} className="p-5 text-center">
-      <Col lg={2}>
-        <img src="images/profle-pic.png" alt="Profile Picture" style={imageStyle}></img>
-        <h3>First Last</h3>
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Modal heading
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <RecipeCardInfo />
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
-      </Col>
-      <Col lg={4}>
-      <Accordion >
-        <Card style={{ backgroundColor: "white! important" }}>
-          <Card.Header>
-            <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: "black" }} >
-              User Information
-          </Accordion.Toggle>
-          </Card.Header>
-          <Accordion.Collapse eventKey="0">
-            <Card.Body>
+export default function App() {
+  const [modalShow, setModalShow] = React.useState(false);
 
-              Information Form
+  return (
+    <ButtonToolbar>
+      <Button variant="primary" onClick={() => setModalShow(true)}>
+        Launch vertically centered modal
+      </Button>
 
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
-      </Accordion>
-          
-
-      </Col>
-      <Col lg={2}>
-
-      </Col>
-      <Col lg={4}>
-
-      <ButtonToolbar>
-    <Button variant="outline-dark" size="sm" style={{marginRight: "15px"}}>
-      Meal Plan
-    </Button>
-    <Button variant="dark" size="sm">
-      Workouts
-    </Button>
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </ButtonToolbar>
-
-      </Col>
-    </Row>
-    );
-  }
-  
+  );
+}
