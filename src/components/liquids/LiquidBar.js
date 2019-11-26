@@ -1,18 +1,39 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
+import axios from 'axios';
 import { VictoryChart, VictoryAxis, VictoryLine, VictoryStack, VictoryTheme } from 'victory';
 import GenerateBar from './GenerateBar.js';
 
 export default function LiquidBar(props) {
   //CREATE REQUEST TO SERVER FOR DATA HERE
   //useEffect from React
-  //One request for all drink data
+  //One request for all drink data???
   //we want to separate each drink from the results
   //we want to select the most recent 7 results
 
   //we want to send the value to GenerateBar
   //we want to generate {x, y} pair for each result
 
-  //axios.get()
+  //Server URI
+  let baseUri = 'http://localhost:3002'
+
+  //HANDLES SIDE EFFECTS
+  //Runs every time component is updated
+  useEffect(() => {
+    Promise.all([
+      axios.get(`${baseUri}/api/drinks`),
+      axios.get(`${baseUri}/api/drink-info`),
+      axios.get(`${baseUri}/api/drinks-tracking`)
+    ])
+    .then((all) => {
+      const [drinks, drinksInfo, drinksTracking] = all;
+      console.log('data fetched!')
+
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+  });
+
 
 
   return (
