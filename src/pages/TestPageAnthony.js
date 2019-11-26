@@ -1,23 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-const API_KEY = process.env.REACT_APP_API_KEY
-const API_URL = fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-		"x-rapidapi-key": "0c473eb99fmsh862d231f4145a1ap1555b5jsne89b311b6ec2"
-	}
-})
-.then(response => {
-	return response.json()
-})
-.then(function (data) {
-  console.log(data)
-})
-.catch(err => {
-	console.log(err);
-});
+// const API_KEY = process.env.REACT_APP_API_KEY
 
 
 const Suggestions = (props) => {
@@ -36,18 +20,23 @@ class Search extends Component {
     query: '',
     results: []
   }
-
+  const API_KEY = '7de6d848659f406e97fe5666ba641b80';
+  const API_URL = `https://api.spoonacular.com/recipes/findByIngredients`
   getInfo = () => {
-    axios.get(`${API_URL}?api_key=${API_KEY}&prefix=${this.state.query}&limit=7`)
-      .then(({ data }) => {
+    axios.get(`${API_URL}?apiKey=${API_KEY}&ingredients=${this.state.query}&number=10`)
+      .then((data) => {
+        console.log('success')
+        console.log(data)
         this.setState({
           results: data.data                              
         })
       })
+      .catch((e) => {
+        console.log(e)
+      })
   }
 
   handleInputChange = () => {
-    // console.log(`${API_URL}?api_key=${API_KEY}&prefix=${this.state.query}&limit=7`)
     this.setState({
       query: this.search.value
     }, () => {
