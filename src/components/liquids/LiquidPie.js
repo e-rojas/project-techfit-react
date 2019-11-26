@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { VictoryPie, VictoryTheme } from 'victory';
+import { VictoryPie } from 'victory';
 
 
 export default function LiquidPie(props) {

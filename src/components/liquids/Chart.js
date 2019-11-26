@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
-import { VictoryChart, VictoryAxis, VictoryPie, VictoryLine, VictoryBar, VictoryStack, VictoryTheme } from 'victory';
 import LiquidBar from './LiquidBar';
 import LiquidPie from './LiquidPie';
 
