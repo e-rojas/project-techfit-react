@@ -25,11 +25,11 @@ export default function Profile({dispatch, user}) {
       
       <Row style={{ borderBottom: "1px solid black" }}>
         <Col  lg={4} style={{ borderRight: "1px solid black" }}>
-          <Tracker />        
+          <Tracker user={user.user}/>        
         </Col>
         <Col lg={8} >
         <h3 className="text-center" style={{marginTop: "15px"}}> Liquid Consumption Chart</h3>
-          <Chart />
+          <Chart user={user.user}/>
         </Col>
       </Row>
       <SavedItems />
