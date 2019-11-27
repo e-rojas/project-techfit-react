@@ -5,7 +5,7 @@ import "./index.css";
 //import Test from "./pages/edgarTestPageComp.js";
 
 import * as serviceWorker from "./serviceWorker";
-import Routes from "./pages/TestPageAnthony";
+import Routes from "./pages/Routes";
 
 ReactDOM.render(<Routes />, document.getElementById("root"));
 
