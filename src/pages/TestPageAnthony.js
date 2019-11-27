@@ -1,67 +1,100 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, useState } from 'react'
 import axios from 'axios'
 import { Row, Col, Button, Form } from "react-bootstrap";
 
 
+
 const API_KEY = '7de6d848659f406e97fe5666ba641b80';
-const API_URL = `https://api.spoonacular.com/recipes/findByIngredients`
+const API_URL_INGREDIENT = `https://api.spoonacular.com/recipes/findByIngredients`
+const API_URL_RECIPE= 'https://api.spoonacular.com/recipes/search'
 
 const rowStyle = { minHeight: "60vh" };
 
 // const API_KEY = process.env.REACT_APP_API_KEY
 
 
-const Suggestions = (props) => {
-  const options = props.results.map(r => (
-    <li key={r.id}>
-      {r.name}
+// const Suggestions = (props) => {
+//   const options = props.results.map(r => (
+//     <li key={r.id}>
+//       {r.title}
+//       <img src={r.image}></img>
+//     </li>
+//   ))
+//   return <ul>{options}</ul>
+// }
+
+
+
+const Search = props => {
+  const [state,setState] = useState ({
+    results: [],
+    loadingRecipe: true
+  })
+
+  const [query, setQuery] = useState(""); 
+
+  const options = state.results && state.results.map(r => (
+    <li key={r.data.id}>
+      {r.data.title}
+      <img src={r.data.image}></img>
+      {r.data.readyInMinutes} minutes
+      {r.data.servings} servings
+      <a href={r.data.sourceURL}>Get Recipe from source</a>
+      <a href={r.data.spoonacularSourceURL}>Get Recipe from spoonacular</a>
     </li>
   ))
-  return <ul>{options}</ul>
-}
+  
 
+  const getInfo = () => {
+    console.log('getInfo')
+    axios.get(`${API_URL_INGREDIENT}?apiKey=${API_KEY}&ingredients=${query}`)
+      .then((response) => { 
+        const promises = [];
+        for ( let recipe of response.data ) {
+          promises.push(axios.get(`https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${API_KEY}`))
+        }
 
-
-class Search extends Component {
-  state = {
-    query: '',
-    results: []
-  }
-  const API_KEY = '7de6d848659f406e97fe5666ba641b80';
-  const API_URL = `https://api.spoonacular.com/recipes/findByIngredients`
-  getInfo = () => {
-    axios.get(`${API_URL}?apiKey=${API_KEY}&ingredients=${this.state.query}&number=10`)
-      .then((data) => {
         console.log('success')
-        console.log(data)
-        this.setState({
-          results: data.data
-        })
+        console.log(response)
+
+        return Promise.all(promises)
       })
+      .then((response) => {
+          console.log("promise", response)
+          setState({
+            results: response,
+            loadingRecipe: false
+          })
+  
+            })
       .catch((e) => {
         console.log(e)
       })
   }
+  
+  const handleSubmit = event => {
+    event.preventDefault()
+    getInfo()
+  }
 
-  handleInputChange = () => {
-    this.setState({
-      query: this.search.value
+  const handleInputChange = (event) => {
+    setState({
+      query: event.target.value
     }, () => {
-      if (this.state.query && this.state.query.length > 1) {
-        if (this.state.query.length % 3 === 0) {
-          this.getInfo()
+      if (state.query && state.query.length > 1) {
+        if (state.query.length % 3 === 0) {
+          getInfo()
         }
       }
     })
   }
 
-  handleKeyPress = (event) => {
+  const handleKeyPress = (event) => {
     if(event.key === 'Enter'){
       console.log('enter press here! ')
     }
   }
 
-  render() {
     return (
       <Row style={rowStyle} className=" p-4">
         <Col
@@ -78,11 +111,11 @@ class Search extends Component {
             <h1>Meal Plan Search</h1>
           </header>
 
-          <Form style={{ minWidth: "600px" }}>
+          <Form style={{ minWidth: "600px" }} onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>Type Ingredients*</Form.Label>
-              <Form.Control type="text" placeholder="Ingredients" ref={input => this.search = input} onChange={this.handleInputChange} onKeyPress={this.handleKeyPress}/>
-              <Suggestions results={this.state.results} />
+              <Form.Control type="text" placeholder="Ingredients" value={query} onChange={event => setQuery(event.target.value)} onKeyPress={handleKeyPress}/>
+              {!state.loadingRecipe && <ul>{options}</ul> }
             </Form.Group>
             <Button
               variant="primary"
@@ -92,6 +125,7 @@ class Search extends Component {
                 marginTop: "50px",
                 filter: "grayscale(100%)"
               }}
+              
             >
               Search
             </Button>
@@ -138,7 +172,7 @@ class Search extends Component {
         </Col>
       </Row>
     )
-  }
+  
 }
 
 export default Search
