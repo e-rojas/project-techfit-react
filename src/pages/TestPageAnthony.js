@@ -8,7 +8,7 @@ const API_URL = `https://api.spoonacular.com/recipes/findByIngredients`
 
 const rowStyle = { minHeight: "60vh" };
 
-
+// const API_KEY = process.env.REACT_APP_API_KEY
 
 
 const Suggestions = (props) => {
@@ -27,7 +27,8 @@ class Search extends Component {
     query: '',
     results: []
   }
-
+  const API_KEY = '7de6d848659f406e97fe5666ba641b80';
+  const API_URL = `https://api.spoonacular.com/recipes/findByIngredients`
   getInfo = () => {
     axios.get(`${API_URL}?apiKey=${API_KEY}&ingredients=${this.state.query}&number=10`)
       .then((data) => {

@@ -1,18 +1,48 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
+import axios from 'axios';
 import { VictoryChart, VictoryAxis, VictoryLine, VictoryStack, VictoryTheme } from 'victory';
 import GenerateBar from './GenerateBar.js';
 
 export default function LiquidBar(props) {
+  const data = {};
   //CREATE REQUEST TO SERVER FOR DATA HERE
   //useEffect from React
-  //One request for all drink data
+  //One request for all drink data???
   //we want to separate each drink from the results
   //we want to select the most recent 7 results
 
   //we want to send the value to GenerateBar
   //we want to generate {x, y} pair for each result
 
-  //axios.get()
+  //Server URI
+  let baseUri = 'http://localhost:3002'
+
+  //HANDLES SIDE EFFECTS
+  //Runs every time component is updated
+  useEffect(() => {
+    axios
+      .get(`${baseUri}/api/drinks-tracking`)
+      .then((res) => {
+        generateData(res.data);
+        console.log('data fetched!')
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  });
+
+  //DATA MANIPULATION
+  //GENERATE {x, y} PAIR FOR ALL DAYS
+  //x-value is the index of the day
+  //x-value should be relative to current time so that the current day is index 7
+  //x-value for 7 days ago should be 1
+
+  //y-value is the % of total drinks
+  //y-value is calculated from drinkCount / totalDrinkCount
+  
+  function generateData(serverData) {
+  
+  }
 
 
   return (
