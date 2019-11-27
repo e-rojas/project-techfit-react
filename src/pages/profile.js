@@ -10,7 +10,7 @@ import useProfileTokenUser from "../handlers/profile_token_user";
 
 export default function Profile({ dispatch, user }) {
   useProfileTokenUser(dispatch);
-  const test = useProfileTokenUser(dispatch);
+  //const test = useProfileTokenUser(dispatch);
 
   return (
     <Container className="" fluid={true}>
