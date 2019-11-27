@@ -11,15 +11,17 @@ import { Link } from "react-router-dom";
 import UserInfoForm from './UserInfoForm'
 const imageStyle = { height: "100px", width: "100px", marginBottom: "40px" };
 
-const ProfileInfo = () => {
+const ProfileInfo = ({ user }) => {
+  console.log('STATE', user)
   return (
+    user && (
     <Row
       style={{ marginTop: "100px", borderBottom: "1px solid black" }}
       className="p-5 text-center"
     >
       <Col lg={2}>
-        <img className='rounded-circle' src="images/profle-pic.png" alt="Profile" style={imageStyle}></img>
-        <h3>First Last</h3>
+        <img className='rounded-circle' src={user.image_url} alt="Profile" style={imageStyle}></img>
+          <h3>{user.first_name} {user.last_name}</h3>
       </Col>
       <Col lg={4}>
         <Accordion className='mt-2 mb-2'>
@@ -36,7 +38,7 @@ const ProfileInfo = () => {
             </Card.Header>
             <Accordion.Collapse eventKey="0">
               <Card.Body>
-                <UserInfoForm />
+                <UserInfoForm user={user} />
               </Card.Body>
             </Accordion.Collapse>
           </Card>
@@ -73,7 +75,8 @@ const ProfileInfo = () => {
           </Link>
         </ButtonToolbar>
       </Col>
-    </Row>
+      </Row>
+      )
   );
 };
 
