@@ -6,12 +6,22 @@ import SavedItems from "../components/Profile/SavedItemsSection/SavedItems";
 import ProfileInfo from "../components/Profile/ProfileInfoSection/ProfileInfo";
 import Tracker from "../components/liquids/Tracker.js";
 import Chart from "../components/liquids/Chart.js";
+import useProfileTokenUser from '../handlers/profile_token_user'
 
-export default function profile() {
+export default function Profile({dispatch, user}) {
+  useProfileTokenUser(dispatch);
+  const test = useProfileTokenUser(dispatch);
+
+  
+
+
+
+
+
   return (
     <Container className="" fluid={true}>
       <Navbar />
-      <ProfileInfo />
+      <ProfileInfo user={user.user}/>
       
       <Row style={{ borderBottom: "1px solid black" }}>
         <Col  lg={4} style={{ borderRight: "1px solid black" }}>
