@@ -4,6 +4,7 @@ import { VictoryChart, VictoryAxis, VictoryLine, VictoryStack, VictoryTheme } fr
 import GenerateBar from './GenerateBar.js';
 
 export default function LiquidBar(props) {
+  const data = {};
   //CREATE REQUEST TO SERVER FOR DATA HERE
   //useEffect from React
   //One request for all drink data???
@@ -19,21 +20,29 @@ export default function LiquidBar(props) {
   //HANDLES SIDE EFFECTS
   //Runs every time component is updated
   useEffect(() => {
-    Promise.all([
-      axios.get(`${baseUri}/api/drinks`),
-      axios.get(`${baseUri}/api/drink-info`),
-      axios.get(`${baseUri}/api/drinks-tracking`)
-    ])
-    .then((all) => {
-      const [drinks, drinksInfo, drinksTracking] = all;
-      console.log('data fetched!')
-
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+    axios
+      .get(`${baseUri}/api/drinks-tracking`)
+      .then((res) => {
+        generateData(res.data);
+        console.log('data fetched!')
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   });
 
+  //DATA MANIPULATION
+  //GENERATE {x, y} PAIR FOR ALL DAYS
+  //x-value is the index of the day
+  //x-value should be relative to current time so that the current day is index 7
+  //x-value for 7 days ago should be 1
+
+  //y-value is the % of total drinks
+  //y-value is calculated from drinkCount / totalDrinkCount
+  
+  function generateData(serverData) {
+  
+  }
 
 
   return (
