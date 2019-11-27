@@ -10,7 +10,7 @@ const login = (props) => {
       < Container className="" fluid={true}>
           < TopNavBar />
 
-          < Login auth={props.auth} />
+      < Login  auth={props.auth}/>
 
           < Footer/>
          

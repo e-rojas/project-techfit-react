@@ -1,42 +1,51 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { useReducer } from "react";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import Home from "../pages/home";
+import Profile from "../pages/profile";
 import Login from "../pages/login";
 import Register from "../pages/register";
-import Profile from "../pages/profile";
-import MealPlan from "../pages/MealPlan";
-import FitnessPlan from "../pages/FitnessPlan";
-import Home from '../pages/home'
+import appReducer from '../reducers/appReducer'
 const Routes = () => {
+	//state,dispatch
+	const [state, dispatch] = useReducer(appReducer, {
+	user:null
+})
+	
 
+  
+  // Functions
   const checkAuth = () => {
-    if (localStorage.getItem('token')) {
-        console.log('token accepted',localStorage.getItem)
-        return true
-        
+    if (localStorage.getItem("token")) {
+      return true;
     } else {
-      localStorage.clear();
-        console.log('token false')
-        return false
-       
+      return false;
+    }
+  };
+  const auth = () => {
+    if (checkAuth()) {
+      window.location.href = "/";
+    }
+  };
+  // Render
+    return (
+      <BrowserRouter>
+		<Switch>
+          <Route path="/home" component={() => <Home />} />
+          <Route path="/login" component={() => <Login auth={auth} />} />
+          <Route
+            path="/register"
+            component={() => <Register auth={auth} />}
+          />
+          <Route
+            path="/"
+            render={() =>
+				checkAuth() ? <Profile dispatch={dispatch} user={state} /> : <Redirect to="/login" />
+            }
+          />
+        </Switch>
+      </BrowserRouter>
+    );
+ 
 }
-}
-const auth = () => {
-if (checkAuth()) {
-  window.location.href = '/'
-}
-}
-  return (
-    <BrowserRouter>
-      <Switch>
-      <Route path="/home" component={() => <Home />} />
-        <Route path="/meal-plan" component={() => <MealPlan />} />
-        <Route path="/fitness-plan" component={() => <FitnessPlan />} />
-        <Route path="/login" component={() => < Login  />} />
-        <Route path="/register" component={() => <Register />} />
-        <Route path="/" component={() => <Profile />} />
-      </Switch>
-    </BrowserRouter>
-  );
-};
 
 export default Routes;

@@ -1,7 +1,75 @@
-import React from "react";
+import React,{useState} from "react";
 import { Row, Col, Button, Form } from "react-bootstrap";
-const UserInfoForm = () => {
+import axios from 'axios'
+const UserInfoForm = (props) => {
+  console.log('FORM', props.user.id)
+ 
+ const [form, setValues] = useState({
+  email: "",
+  password: ""
+});
+const [msg, setMsg] = useState("");
+const resetForm = () => {
+  setValues({
+    email: "",
+    password: ""
+  });
+};
+
+// const printValues = e => {
+//   e.preventDefault();
+//   console.log(form.email, form.password);
+//   resetForm()
+// };
+const handleFieldChange = e => {
+  setValues({
+    ...form,
+    [e.target.name]: e.target.value
+  });
+};
+
+const handleLogin = e => {
+  e.preventDefault();
+  const postData = {
+    first_name: form.first_name,
+    last_name:form.last_name,
+    email: form.email,
+    password: form.password,
+   
+    weight:form.weight
+  };
+  const axiosConfig = {
+    headers: {
+      
+      "Content-Type": "application/json;charset=UTF-8",
+      "Access-Control-Allow-Origin": "*"
+    }
+  };
+  axios
+    .post("http://localhost:3002/api/login", postData, axiosConfig)
+    .then(res => {
+      setMsg(res.data.message);
+      if (res.data.token) {
+        localStorage.setItem("token", res.data.token);
+        resetForm();
+      
+      } else {
+        localStorage.setItem("token", null);
+      }
+      // console.log("response from server>>>", res.data);
+    })
+    .catch(err => {
+      // setMsg(err);
+      console.log("AXIOS ERROR:", err);
+    });
+};
+
+
+
+
+
   return (
+
     <Row
       //style={{ marginTop: "200px", marginBottom: "200px" }}
       className="p-4  d-flex justify-content-center "
@@ -9,7 +77,8 @@ const UserInfoForm = () => {
       <Col lg={12}>
         <Form>
           <Form.Group >
-            <Form.Control type="text" placeholder="Name" />
+            <Form.Control
+              type="text" placeholder="Name" />
           </Form.Group>
           <Form.Group >
             <Form.Control type="email" placeholder="Email" />
