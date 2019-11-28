@@ -2,7 +2,6 @@ import React from 'react';
 import Incrementer from './Incrementer';
 import './Tracker.scss';
 
-
 export default function Tracker(props) {
   return (
     <section className="liquid--tracker text-center">
@@ -10,13 +9,13 @@ export default function Tracker(props) {
       <table className="text-center">
         <tbody>
           <tr>
-            <td><Incrementer name={'Water '} onClick={props.incrementWater}/></td>
+            <td><Incrementer name={'Water '} user={props.user}/></td>
           </tr>        
           <tr>
-            <td><Incrementer name={'Coffee'} onClick={props.incrementCoffee}/></td>
+            <td><Incrementer name={'Coffee'} user={props.user}/></td>
           </tr>
           <tr>
-            <td><Incrementer name={'Soda '} onClick={props.incrementSoda}/></td>
+            <td><Incrementer name={'Soda '} user={props.user}/></td>
           </tr>
         </tbody>
       </table>

@@ -24,7 +24,7 @@ export default function LiquidBar(props) {
       .get(`${baseUri}/api/drinks-tracking`)
       .then((res) => {
         generateData(res.data);
-        console.log('data fetched!')
+        console.log(res.data)
       })
       .catch((e) => {
         console.log(e);
