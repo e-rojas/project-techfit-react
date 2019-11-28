@@ -1,11 +1,10 @@
-import React, { Fragment, useState } from 'react'
+import React, { Component, Fragment, useState } from 'react'
 import axios from 'axios'
 import { Row, Col, Button, Form } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 
 
-const API_KEY = '0d051cbbb7514278bad41482cc39a0f2';
+const API_KEY = '62f772b6ee6db6949310140643ae3fb2ddf6e557';
 const API_URL = `https://api.spoonacular.com/recipes/findByIngredients`
 
 
@@ -22,15 +21,10 @@ const Search = props => {
 
   const [query, setQuery] = useState(""); 
 
-  const options = state.results && state.results.map((r, i) => (
+  const options = state.results && state.results.map(r => (
     <Fragment>
-    <Row key={i} id={i} className="border pt-4 pb-4 rounded" style={{marginTop: "10px",marginRight: "15px"}} >
-      <Col lg={6}           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center"
-          }}>
+    <Row className="border pt-4 pb-4 rounded">
+      <Col lg={6}>
         <img
           style={{ height: "200px" }}
           className="img-fluid img-thumbnail"
@@ -50,11 +44,10 @@ const Search = props => {
           <span>
             <i className="fas fa-users"></i> : {r.data.servings} servings
           </span>
-          <Button variant="info" size="sm" type="submit">
+          <Button variant="info" size="sm">
             Add <i className="far fa-plus-square"></i>
           </Button>
         </div>
-        <a href={r.data.sourceUrl} target="_blank" style={{fontWeight: "bold", color: "black"}} >Click to see full recipe</a>
       </Col>
     </Row>
   </Fragment>
@@ -124,12 +117,12 @@ const Search = props => {
           className=""
         >
           <header>
-            <h1>Meal Plan Search</h1>
+            <h1>Workout Search</h1>
           </header>
 
           <Form style={{ minWidth: "600px" }} onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Label>Type Ingredients*</Form.Label>
+              <Form.Label>Type workout*</Form.Label>
               <Form.Control type="text" placeholder="Ingredients" value={query} onChange={event => setQuery(event.target.value)} onKeyPress={handleKeyPress}/>
               {!state.loadingRecipe }
             </Form.Group>
@@ -148,8 +141,8 @@ const Search = props => {
             <Form.Text className="text-muted"></Form.Text>
           </Form>
         </Col>
-        <Col lg={6} className=" d-flex flex-column " style={{overflowY: 'scroll', maxHeight: "1000px" }}>
-          <h1 className="text-center">Meals List Display</h1>
+        <Col lg={6} className=" d-flex flex-column ">
+          <h1>Meals List Display</h1>
           <div>
               {options}
           </div>
