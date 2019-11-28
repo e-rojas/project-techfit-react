@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, Button, Accordion, Card, ButtonToolbar, Modal } from "react-bootstrap";
 import RecipeCardInfo from '../components/Profile/SavedItemsSection/RecipeCardInfo'
@@ -21,7 +21,10 @@ const footerButton = {
 const imageStyle = { height: "100px", width: "100px", marginBottom: "40px"}
 
 
+
 function MyVerticallyCenteredModal(props) {
+
+
   return (
     <Modal
       {...props}
@@ -30,12 +33,13 @@ function MyVerticallyCenteredModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
+        <Modal.Title id="contained-modal-title-vcenter" className="text-center">
+        Your recipe presented by TechFit
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <RecipeCardInfo />
+      <Modal.Body className="text-center">
+        {/* <RecipeCardInfo /> */}
+        <iframe  style={{width:"75vh", height: "75vh"}}src="https://fitfoodiefinds.com/how-to-make-shredded-chicken-in-the-instant-pot/"> </iframe>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>

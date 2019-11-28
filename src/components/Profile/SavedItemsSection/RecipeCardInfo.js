@@ -10,13 +10,13 @@ function MyVerticallyCenteredModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
+        <Modal.Title id="contained-modal-title-vcenter" className="text-center">
+        Your recipe presented by TechFit
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <RecipeCardInfo /> 
-        {/* This is where the Recipe will go */}
+      <Modal.Body className="text-center">
+        {/* <RecipeCardInfo /> */}
+        <iframe  style={{width:"75vh", height: "75vh"}}src="https://fitfoodiefinds.com/how-to-make-shredded-chicken-in-the-instant-pot/"> </iframe>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
