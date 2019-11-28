@@ -8,9 +8,9 @@ import Tracker from "../components/liquids/Tracker.js";
 import Chart from "../components/liquids/Chart.js";
 import useProfileTokenUser from '../handlers/profile_token_user'
 
-export default function Profile({dispatch, user}) {
-  useProfileTokenUser(dispatch);
-  const test = useProfileTokenUser(dispatch);
+export default function Profile(props) {
+  useProfileTokenUser(props.dispatch);
+  const test = useProfileTokenUser(props.dispatch);
 
   
 
@@ -21,15 +21,15 @@ export default function Profile({dispatch, user}) {
   return (
     <Container className="" fluid={true}>
       <Navbar />
-      <ProfileInfo user={user.user}/>
+      <ProfileInfo user={props.user.user}/>
       
       <Row style={{ borderBottom: "1px solid black" }}>
         <Col  lg={4} style={{ borderRight: "1px solid black" }}>
-          <Tracker user={user.user}/>        
+          <Tracker user={props.user.user}/>        
         </Col>
         <Col lg={8} >
         <h3 className="text-center" style={{marginTop: "15px"}}> Liquid Consumption Chart</h3>
-          <Chart user={user.user}/>
+          <Chart user={props.user.user}/>
         </Col>
       </Row>
       <SavedItems />
